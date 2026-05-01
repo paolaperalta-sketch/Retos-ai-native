@@ -1,0 +1,314 @@
+{
+  "name": "Respuesta Referidores",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "98f25f7b-8c01-4a48-8f91-b412e061344e",
+              "leftValue": "={{ $json.body.stage }}",
+              "rightValue": "Hire",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        688,
+        208
+      ],
+      "id": "a98c0e95-3ae8-45cf-b2a7-228cda945084",
+      "name": "If Hire"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "91dddb0d-1462-43e2-9f8b-c855cb698895",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        48,
+        0
+      ],
+      "id": "911ac9e5-2a94-4309-842b-3e85b1f28fb6",
+      "name": "Webhook",
+      "webhookId": "91dddb0d-1462-43e2-9f8b-c855cb698895"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2bc20847-c1f1-4f4d-b7a8-16a7b848c1bd",
+              "leftValue": "={{ $json.body.stage }}",
+              "rightValue": "RPS",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "97c35f3f-1f7d-4270-961f-1a9f6fa89a43",
+              "leftValue": "={{ $json.body.stage }}",
+              "rightValue": "HS1",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "bbf2aee9-5230-496c-a47c-a3e72929bb9b",
+              "leftValue": "={{ $json.body.stage }}",
+              "rightValue": "HS2",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        80
+      ],
+      "id": "d73551f9-f150-46fc-bc18-dc5840ff044b",
+      "name": "If RPS, HS1, HS2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cdb1384e-0994-4d2c-8384-b9212be4bcbd",
+              "leftValue": "={{ $json.body.stage }}",
+              "rightValue": "Culture Fit",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        256,
+        0
+      ],
+      "id": "08bc6e4e-422f-405b-b1df-970a680ddd97",
+      "name": "If Culture Fit"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.email }}",
+        "subject": "Tu referido está a un paso de unirse a Bia 🚀",
+        "message": "=<p>¡Hola!</p>\n\n<p>Queríamos contarte que <strong>tu referido ha avanzado al último paso del proceso</strong> 🤩</p>\n\n<p>Muy pronto tendrá una entrevista con <strong>Sebastián Ruales, nuestro CEO</strong> 🚀</p>\n\n<p>Sabemos que este momento puede ser clave, así que si puedes, <strong>dale algunos tips o contextos para prepararse</strong> y brillar en esta última etapa ✨</p>\n\n<p>Gracias por seguir trayendo talento increíble a Bia 💜</p>\n\n<p>Un abrazo,<br>\nEquipo de Talento Bia ⚡</p>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        -96
+      ],
+      "id": "e5a63c3f-982d-4102-8aba-07734d65be06",
+      "name": "Send a message - Culture Fit",
+      "webhookId": "48629029-58ea-4676-acda-63e75da47c3d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "IOqtaDSts5WCP4f4",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.email }}",
+        "subject": "¡Tu referido ha avanzado a la siguiente etapa de nuestro proceso de selección! 🚀",
+        "message": "=<p>¡Hola!</p>\n\n<p>Queríamos contarte que <strong>tu referido acaba de pasar a la siguiente etapa del proceso</strong> 🎉</p>\n\n<p>Gracias por confiar en nuestro equipo y por seguir sumando talento increíble a Bia 💜</p>\n\n<p>Te mantendremos al tanto de cómo avanza todo. Si tienes dudas o algo más que quieras contarnos, ¡escríbenos sin problema!</p>\n\n<p>Un abrazo,<br>\nEquipo de Talento Bia ⚡</p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        688,
+        -16
+      ],
+      "id": "f7d59c29-2449-4d70-84b3-d9002919eecc",
+      "name": "Send a message - RPS, HS1, HS2",
+      "webhookId": "88919d98-f796-4640-8f9a-3cfeb405955a",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "IOqtaDSts5WCP4f4",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$json.body.email}}",
+        "subject": "¡Tu referido fue contratado en Bia! 🎉",
+        "message": "=<p>¡Hola!</p>\n\n<p>Tenemos una gran noticia: <strong>tu referido fue contratado en Bia 🎉</strong></p>\n\n<p>Gracias por compartir talento con nosotros. Tu apoyo marca una gran diferencia en el crecimiento de nuestro equipo 💜</p>\n\n<p>Recuerda que una vez tu referido complete sus <strong>dos meses de período de prueba</strong>, en el <strong>tercer mes recibirás tu bono de referidos</strong> 🤑</p>\n\n<p>Si quieres conocer más detalles sobre el valor del bono o tienes dudas, puedes acercarte a nuestro equipo de <strong>People</strong>. ¡Estaremos felices de ayudarte!</p>\n\n<p>Gracias por seguir siendo parte de la construcción de Bia ⚡</p>\n\n<p><strong>#BringAFriend</strong></p>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1024,
+        96
+      ],
+      "id": "bf924231-be5e-4660-8f82-2387f874468b",
+      "name": "Send a message - Hire",
+      "webhookId": "3c2673fc-7a8a-44f7-bdf8-0ef7efc19161",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "IOqtaDSts5WCP4f4",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$json.body.email}}",
+        "subject": "Gracias por tu referido 🙌",
+        "message": "=<p>¡Hola!</p>\n\n<p>Queríamos contarte que, esta vez <strong>tu referido no continuará en el proceso</strong>, agradecemos mucho que hayas confiado en nosotros para compartir su perfil 💜</p>\n\n<p>En Bia seguimos en crecimiento y constantemente buscamos nuevos talentos, así que <strong>esperamos seguir contando contigo</strong> para futuras oportunidades 🚀</p>\n\n<p>¡Gracias por ser parte de esta comunidad que impulsa el futuro de la energía!</p>\n\n<p>Un abrazo,<br>\nEquipo de Talento Bia ⚡</p>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1024,
+        288
+      ],
+      "id": "0783272f-7b79-4466-a6d2-4f3a83c49d4a",
+      "name": "Send a message - No Hire",
+      "webhookId": "e195ec75-f124-46fe-9eb6-e0b1089bdeaa",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "IOqtaDSts5WCP4f4",
+          "name": "Gmail account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "If Hire": {
+      "main": [
+        [
+          {
+            "node": "Send a message - Hire",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message - No Hire",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "If Culture Fit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If RPS, HS1, HS2": {
+      "main": [
+        [
+          {
+            "node": "Send a message - RPS, HS1, HS2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If Hire",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Culture Fit": {
+      "main": [
+        [
+          {
+            "node": "Send a message - Culture Fit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If RPS, HS1, HS2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "18c4e1e8-0c8d-4d9e-9910-b589447e0d97",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a2f1ae710e8e3ecb2e5e1f8ca4d395ef479be3414af8b7706e748c0c39d2e798"
+  },
+  "id": "ES1Sb4XeYQJlglZW",
+  "tags": []
+}
