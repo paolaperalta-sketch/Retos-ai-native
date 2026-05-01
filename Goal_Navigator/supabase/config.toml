@@ -1,0 +1,7 @@
+project_id = "zgyyyzvdpordehkgzssv"
+
+[functions.okr-api]
+verify_jwt = false
+
+[functions.ceo-snapshot]
+verify_jwt = false

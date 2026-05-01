@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Owner of area OKR reads its KRs" ON public.key_results;

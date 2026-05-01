@@ -1,0 +1,1 @@
+UPDATE okr_areas SET name = regexp_replace(regexp_replace(name, E'[\\r\\n\\t]+', ' ', 'g'), ' +', ' ', 'g') WHERE name ~ E'[\\r\\n\\t]|  ';

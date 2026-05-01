@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Bia Design System — Pure white, airy, purple accent */
+    --background: 0 0% 100%;
+    --foreground: 224 20% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 20% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 20% 16%;
+
+    --primary: 252 84% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 224 15% 40%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+    --color-text-secondary: var(--muted-foreground);
+
+    --accent: 252 84% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 252 84% 55%;
+
+    --radius: 0.5rem;
+
+    /* Status colors */
+    --success: 152 60% 40%;
+    --success-foreground: 152 50% 28%;
+    --success-bg: 152 40% 96%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 60% 30%;
+    --warning-bg: 38 60% 96%;
+
+    --danger: 0 72% 51%;
+    --danger-foreground: 0 60% 35%;
+    --danger-bg: 0 50% 96%;
+
+    --info: 217 68% 55%;
+    --info-foreground: 217 50% 30%;
+    --info-bg: 217 60% 96%;
+
+    /* eNPS semantic colors */
+    --promoter: 152 76% 36%;
+    --passive: 40 96% 50%;
+    --detractor: 0 100% 63%;
+    --promoter-bg: 145 60% 95%;
+    --passive-bg: 40 100% 95%;
+    --detractor-bg: 0 100% 96%;
+
+    /* Sidebar — white, clean */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 10% 46%;
+    --sidebar-primary: 252 84% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 252 84% 97%;
+    --sidebar-accent-foreground: 252 84% 50%;
+    --sidebar-border: 220 13% 93%;
+    --sidebar-ring: 252 84% 55%;
+    --sidebar-muted: 220 14% 97%;
+
+    /* ── Unified spacing system (8px base) ── */
+    --space-xs: 0.25rem;   /* 4px */
+    --space-sm: 0.5rem;    /* 8px */
+    --space-md: 0.75rem;   /* 12px */
+    --space-lg: 1rem;      /* 16px */
+    --space-xl: 1.5rem;    /* 24px */
+    --space-2xl: 2rem;     /* 32px */
+    --space-3xl: 2.5rem;   /* 40px */
+
+    /* People module — unified spacing tokens */
+    --people-card-padding: 1.25rem;        /* 20px — standard card */
+    --people-card-padding-compact: 1rem;   /* 16px — compact card */
+    --people-module-padding-x: 2.5rem;     /* 40px desktop */
+    --people-module-padding-y: 2rem;       /* 32px desktop */
+    --people-module-gap: 1.5rem;           /* 24px between sections */
+
+    /* ── Unified type scale ── */
+    --text-xs: 11px;
+    --text-sm: 12px;
+    --text-base: 14px;
+    --text-lg: 16px;
+    --text-xl: 18px;
+    --text-2xl: 24px;
+    --text-3xl: 32px;
+
+    /* ── Unified page header tokens ── */
+    --header-padding-top: 2rem;        /* 32px */
+    --header-padding-bottom: 1.5rem;   /* 24px */
+    --header-padding-x: 2.5rem;        /* 40px */
+    --header-breadcrumb-mb: 0.5rem;    /* 8px */
+    --header-title-mb: 0.5rem;         /* 8px */
+    --header-controls-mt: 1rem;        /* 16px */
+  }
+
+  @media (max-width: 1023px) {
+    :root {
+      --people-card-padding: 1rem;         /* 16px tablet */
+      --people-module-padding-x: 1.5rem;   /* 24px tablet */
+      --people-module-padding-y: 1.5rem;
+      --people-module-gap: 1.25rem;
+      --header-padding-x: 1.5rem;
+      --header-padding-top: 1.5rem;
+      --header-padding-bottom: 1.25rem;
+      --text-3xl: 28px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    :root {
+      --people-card-padding: 0.875rem;
+      --people-module-padding-x: 1rem;
+      --people-module-padding-y: 1rem;
+      --people-module-gap: 1rem;
+      --header-padding-x: 1rem;
+      --header-padding-top: 1.25rem;
+      --header-padding-bottom: 1rem;
+      --text-3xl: 24px;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(252 70% 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-energy {
+    background: linear-gradient(135deg, hsl(152 60% 40%), hsl(160 70% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  /* ── Unified card (NPS reference) ── single source of truth ── */
+  .people-card {
+    @apply bg-card rounded-xl border border-border shadow-sm transition-shadow hover:shadow-md;
+    padding: var(--people-card-padding);
+  }
+
+  .card-metric {
+    @apply people-card;
+  }
+
+  /* ── Unified module shell padding (NPS reference: px-6 py-6 desktop, scales down on mobile) ── */
+  .people-module-shell {
+    padding: var(--people-module-padding-y) var(--people-module-padding-x);
+  }
+
+  .people-module-shell > * + * {
+    margin-top: var(--people-module-gap);
+  }
+
+  /* ── Unified responsive metrics grid ── single source of truth ──
+     Use as wrapper around any row of KPI/metric/widget cards.
+     Auto-fit: desktop fits as many as possible, wraps to 2 col on tablet,
+     2 col on mobile, 1 col under 400px. */
+  .people-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  /* Variant for wider cards (e.g. dashboard summaries) */
+  .people-metrics-grid-wide {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  @media (max-width: 400px) {
+    .people-metrics-grid,
+    .people-metrics-grid-wide {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Every direct card child must respect the grid track width */
+  .people-metrics-grid > *,
+  .people-metrics-grid-wide > * {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .kr-title {
+    text-transform: none !important;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: inherit;
+  }
+
+  .kr-meta-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: hsl(var(--color-text-secondary));
+  }
+
+  .badge-promoter {
+    @apply bg-[hsl(var(--promoter-bg))] text-[hsl(var(--promoter))] text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-passive {
+    @apply bg-[hsl(var(--passive-bg))] text-[hsl(var(--passive))] text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-detractor {
+    @apply bg-[hsl(var(--detractor-bg))] text-[hsl(var(--detractor))] text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  /* ── Unified page header system ── single source of truth ── */
+  .page-header {
+    padding: var(--header-padding-top) var(--header-padding-x) var(--header-padding-bottom);
+    border-bottom: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+  }
+
+  .page-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .page-header-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .page-header-controls {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .page-breadcrumb {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: var(--header-breadcrumb-mb);
+  }
+
+  .page-title {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    line-height: 1.25;
+    color: hsl(var(--foreground));
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .page-title + .page-subtitle {
+    margin-top: var(--header-title-mb);
+  }
+
+  .page-subtitle {
+    font-size: var(--text-base);
+    font-weight: 400;
+    line-height: 1.5;
+    color: hsl(var(--muted-foreground));
+    margin: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
