@@ -1,0 +1,165 @@
+.biaVisualizer {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  height: 80dvh;
+}
+
+.zoomControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #CECFDB;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.zoomButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #CECFDB;
+  border-radius: 6px;
+  background: #FFFFFF;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: #F7F8FC;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.zoomLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #5D607E;
+  min-width: 40px;
+  text-align: center;
+}
+
+.documentContainer {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background: #343434;
+  min-height: 0;
+}
+
+.document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.page {
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  canvas {
+    display: block;
+    height: auto !important;
+    max-width: none !important;
+  }
+}
+
+// Estados
+.emptyState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 16px;
+  height: 100%;
+}
+
+.emptyText,
+.errorText {
+  font-size: 14px;
+  color: #5D607E;
+  margin: 0;
+}
+
+.errorText {
+  color: #FF4242;
+}
+
+// Controles
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background: #FFFFFF;
+  border-top: 1px solid #CECFDB;
+}
+
+.navigationButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controlButton {
+  min-width: 36px !important;
+  width: 36px;
+  height: 36px;
+  padding: 8px !important;
+
+  :global(.MuiButton-startIcon) {
+    margin: 0;
+  }
+}
+
+.pageInfo {
+  font-size: 12px;
+  color: #5D607E;
+  font-weight: 500;
+  padding: 0 16px;
+  white-space: nowrap;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .documentContainer {
+    padding: 12px;
+  }
+
+  .controls {
+    padding: 12px;
+  }
+
+  .navigationButtons {
+    gap: 6px;
+  }
+
+  .controlButton {
+    min-width: 32px !important;
+    width: 32px;
+    height: 32px;
+  }
+
+  .pageInfo {
+    font-size: 11px;
+    padding: 0 8px;
+  }
+}

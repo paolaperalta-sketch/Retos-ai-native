@@ -1,0 +1,9 @@
+## The following user groups will get notified after a PR is submitted
+* @biaenergy/frontend-web
+
+# This file defines code owners for all files in the repository.
+# GitHub will automatically request reviews from these owners when PRs are opened.
+# At least one code owner must approve PRs before they can be merged.
+
+# All files in the repository require approval from these code owners
+# @nameuser

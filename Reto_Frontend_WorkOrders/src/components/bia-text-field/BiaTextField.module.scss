@@ -1,0 +1,219 @@
+.bia-text-field-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  :global(.MuiOutlinedInput-root) {
+    padding: 6.38px 14px !important;
+    border: 1px solid #CECFDB !important;
+    background-color: #ffffff !important;
+    transition: border-color 0.2s;
+  }
+
+  :global(.MuiOutlinedInput-root fieldset) {
+    transition: border-color 0.2s;
+  }
+
+  // Hover y focus: borde accent (igual que BiaTextarea) — global para ganar especificidad sobre MUI
+  :global(.MuiOutlinedInput-root:hover:not(.Mui-disabled)) {
+    border-color: var(--background-accent, #472bef) !important;
+  }
+
+  :global(.MuiOutlinedInput-root:hover:not(.Mui-disabled) fieldset) {
+    border-color: var(--background-accent, #472bef) !important;
+  }
+
+  :global(.MuiOutlinedInput-root.Mui-focused) {
+    border-color: var(--background-accent, #472bef) !important;
+  }
+
+  :global(.MuiOutlinedInput-root.Mui-focused fieldset) {
+    border-color: var(--background-accent, #472bef) !important;
+  }
+
+  :global(.MuiOutlinedInput-notchedOutline) {
+    border: none !important;
+  }
+
+  :global(.MuiInputBase-input) {
+    font-size: 12px !important;
+    color: var(--ink-standard) !important;
+    padding: 0 !important;
+  }
+
+  :global(.MuiInputBase-input::placeholder) {
+    font-size: 12px !important;
+    color: #5D607E !important;
+    opacity: 1;
+  }
+
+  :global(.MuiInputAdornment-root) {
+    margin: 0 !important;
+    margin-right: 6px !important;
+    height: 15px;
+  }
+
+  // Estilos del label (arriba del campo, fuera del input)
+  .bia-text-field-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--ink-weak);
+
+    // Asterisco rojo para campos requeridos
+    &.Mui-required {
+      &::before {
+        content: '*';
+        color: var(--ink-error, #ff4242);
+        margin-right: 4px;
+      }
+    }
+  }
+
+  // Estilos del TextField
+  .bia-text-field {
+    font-size: 14px;
+
+    // Ocultar el label interno de Material-UI
+    & .MuiInputLabel-root {
+      display: none !important;
+    }
+
+    // Estilos para el input outlined
+    & .MuiOutlinedInput-root {
+      border-radius: 8px;
+      border-color: var(--border-standard, #cecfdb);
+      transition: border-color 0.2s;
+
+      & .MuiOutlinedInput-input {
+        padding: 12px 16px;
+      }
+
+      // Ajustar padding cuando hay adornos
+      & .MuiInputAdornment-root {
+        padding: 0 8px;
+        height: 15px;
+      }
+
+      & fieldset {
+        border-color: var(--border-standard, #cecfdb);
+        border-width: 1px;
+        transition: border-color 0.2s;
+      }
+
+      // Ocultar el legend para que no ocupe espacio
+      & legend {
+        display: none !important;
+        width: 0 !important;
+        max-width: 0 !important;
+      }
+
+      // Hover: mismo borde que BiaTextarea (sin aplicar si está disabled)
+      &:hover:not(.Mui-disabled) fieldset {
+        border-color: var(--background-accent, #472bef) !important;
+      }
+
+      // Focus: mismo borde que BiaTextarea
+      &.Mui-focused fieldset {
+        border-color: var(--background-accent, #472bef) !important;
+        border-width: 1px;
+      }
+
+      &.Mui-error fieldset {
+        border-color: var(--ink-error, #ff4242);
+      }
+    }
+  }
+
+  // Estilos para el input cuando está deshabilitado
+  & .MuiOutlinedInput-root.Mui-disabled {
+    background-color: var(--background-weak, #f7f8fc);
+    cursor: not-allowed;
+
+    & fieldset {
+      border-color: var(--border-standard, #cecfdb);
+    }
+
+    & .MuiOutlinedInput-input {
+      cursor: not-allowed;
+      -webkit-text-fill-color: #5D607E !important;
+    }
+  }
+
+  // Cursor not-allowed y background para el input deshabilitado (global)
+  :global(.MuiOutlinedInput-root.Mui-disabled) {
+    cursor: not-allowed !important;
+    background-color: #f7f8fc !important;
+
+    :global(.MuiInputBase-input) {
+      cursor: not-allowed !important;
+      -webkit-text-fill-color: #5D607E !important;
+    }
+  }
+
+  // Estilos del texto de ayuda (helper text)
+  & .MuiFormHelperText-root {
+    margin-top: 4px;
+    margin-left: 0;
+
+    &.Mui-error {
+      color: var(--ink-error, #ff4242);
+    }
+  }
+
+  // Estilos globales para helper text
+  & :global(.css-jmr2q3-MuiFormHelperText-root) {
+    margin: 0;
+    font-size: 10px;
+
+    &:global(.Mui-disabled) {
+      color: #6d7193;
+      opacity: 0.5;
+    }
+  }
+
+  // Estilos del botón de limpiar
+  .clear-icon-button {
+    padding: 0px;
+    margin-right: -4px;
+    animation: clearIconIn 0.15s ease-out forwards;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(93, 96, 126, 0.08);
+    }
+
+    &:active:not(:disabled) {
+      background-color: rgba(93, 96, 126, 0.12);
+    }
+
+    &.clear-icon-button-exiting {
+      animation: clearIconOut 0.15s ease-in forwards;
+      pointer-events: none;
+    }
+  }
+}
+
+@keyframes clearIconIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes clearIconOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}

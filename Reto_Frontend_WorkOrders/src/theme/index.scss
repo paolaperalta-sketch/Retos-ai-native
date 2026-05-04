@@ -1,0 +1,12 @@
+/**
+ * Theme Index
+ * 
+ * Archivo principal del tema que importa todos los estilos base
+ */
+
+// Importar fuentes primero (pueden definir variables CSS)
+@use 'styles/fonts';
+
+// Importar colores (variables CSS)
+@use 'styles/colors';
+

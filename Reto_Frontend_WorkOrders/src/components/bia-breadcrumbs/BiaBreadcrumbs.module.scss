@@ -1,0 +1,41 @@
+.biaBreadcrumbs {
+
+  :global(.MuiBreadcrumbs-separator) {
+    color: #9CA3AF;
+    margin: 0 8px;
+  }
+
+  :global(.MuiBreadcrumbs-ol) {
+    flex-wrap: nowrap;
+  }
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6B7280;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  font-size: 12px;
+
+  &:hover {
+    color: #472bef;
+    text-decoration: underline;
+  }
+}
+
+.currentItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6B7280;
+  font-size: 14px;
+  font-size: 12px;
+}
+
+.icon {
+  font-size: 12px;
+}

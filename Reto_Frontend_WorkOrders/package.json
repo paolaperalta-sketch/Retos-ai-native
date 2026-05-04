@@ -1,0 +1,80 @@
+{
+  "name": "ops-module-work-orders",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "/notifications",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
+    "@mui/icons-material": "^7.3.6",
+    "@mui/material": "^7.3.6",
+    "@mui/x-date-pickers": "^8.27.0",
+    "@tanstack/react-query": "5.100.9",
+    "@tanstack/react-query-devtools": "^5.91.1",
+    "@tanstack/react-table": "^8.21.3",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "ajv": "^8.17.1",
+    "browser-image-compression": "^2.0.2",
+    "date-fns": "^4.1.0",
+    "firebase": "12.8.0",
+    "react": "^19.2.1",
+    "react-day-picker": "^8.10.1",
+    "react-dom": "^19.2.1",
+    "react-lazy-load-image-component": "^1.6.3",
+    "react-pdf": "^10.3.0",
+    "react-router-dom": "^7.10.1",
+    "react-scripts": "5.0.1",
+    "sass": "^1.94.2",
+    "web-vitals": "5.1.0",
+    "zustand": "^5.0.9"
+  },
+  "scripts": {
+    "start": "dotenv -e .env.development -- craco start",
+    "dev": "dotenv -e .env.development -- craco start",
+    "staging": "dotenv -e .env.staging -- craco start",
+    "build:development": "dotenv -e .env.development -- craco build",
+    "build:production": "dotenv -e .env.production -- craco build",
+    "build:staging": "dotenv -e .env.staging -- craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "25.0.9",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "cross-env": "^10.1.0",
+    "dotenv-cli": "^11.0.0",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "sass-loader": "13.3.2"
+  }
+}

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  ops-module-notifications:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ops-module-notifications
+    ports:
+      - "3001:80"
+    restart: unless-stopped
+    networks:
+      - ops-network
+
+networks:
+  ops-network:
+    driver: bridge
+

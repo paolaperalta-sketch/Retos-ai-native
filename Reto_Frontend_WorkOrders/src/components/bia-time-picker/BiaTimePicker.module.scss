@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  position: relative;
+}
+
+.labelText {
+  margin-bottom: 4px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.input {
+  width: 100%;
+
+  :global(.MuiInputBase-root) {
+    font-size: 12px;
+    border-radius: 8px;
+    background: var(--background-standard);
+    border: 1px solid var(--border-standard);
+
+    &:hover:not(.Mui-disabled) {
+      border-color: var(--background-accent);
+    }
+
+    &.Mui-focused {
+      border-color: var(--background-accent);
+    }
+  }
+}
+
+// Estilos para el layout del picker
+:global(.MuiPickersLayout-contentWrapper) {
+  grid-column: 2 / 2;
+}
+
+// Estilos para el Paper del Picker
+:global(.MuiPaper-root.MuiPickerPopper-paper) {
+  border: 1px solid #cecfdb;
+  border-radius: 8px;
+  box-shadow: 0.5px 0.5px 8px rgba(28, 17, 96, 0.15);
+}
+
+// Estilos para las secciones del picker
+:global(.MuiPickersSectionList-section) {
+  font-size: 12px;
+}
+
+// Estilos para los items del reloj digital
+:global(.MuiMultiSectionDigitalClockSection-item) {
+  font-size: 12px;
+}
+
+:global(.MuiMultiSectionDigitalClockSection-item.Mui-selected) {
+  background-color: #fff !important;
+  color: #472bef !important;
+  font-weight: 600 !important;
+}
+
+// Estilos para la barra de acciones (botones)
+:global(.MuiDialogActions-root.MuiPickersLayout-actionBar) {
+  padding: 0px;
+}

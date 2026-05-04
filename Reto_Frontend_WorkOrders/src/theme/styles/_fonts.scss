@@ -1,0 +1,48 @@
+// Rutas absolutas desde la raíz del sitio (public/assets/fonts se sirve desde /assets/fonts)
+$font-path: '../fonts';
+
+@mixin font-face($name, $file, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: '#{$name}';
+    src: url('#{$file}') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// Definir las fuentes usando rutas absolutas desde la raíz
+@include font-face('Open Sauce', '#{$font-path}/OpenSauceFonts/OpenSauceOneRegular.ttf', 400, normal);
+@include font-face('Open Sauce', '#{$font-path}/OpenSauceFonts/OpenSauceOneSemiBold.ttf', 600, normal);
+@include font-face('icomoon', '#{$font-path}/biaicons/icomoon.eot?33ihea', normal, normal);
+@include font-face('icomoon', '#{$font-path}/biaicons/icomoon.eot?33ihea#iefix', normal, normal);
+@include font-face('icomoon', '#{$font-path}/biaicons/icomoon.ttf?33ihea', normal, normal);
+@include font-face('icomoon', '#{$font-path}/biaicons/icomoon.woff?33ihea', normal, normal);
+@include font-face('icomoon', '#{$font-path}/biaicons/icomoon.svg?33ihea#icomoon', normal, normal);
+
+:root {
+  --font-heading-weight: 600;
+  --font-body-weight: 400;
+  --font-family-global: 'Open Sauce', sans-serif !important;
+}
+
+body {
+  font-family: var(--font-family-global);
+  margin: 0;
+}
+
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

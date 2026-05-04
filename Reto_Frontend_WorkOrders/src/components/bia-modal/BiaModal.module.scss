@@ -1,0 +1,125 @@
+// Modal principal
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Backdrop (fondo oscuro)
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+// Caja del modal
+.modalBox {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  outline: none;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Header del modal
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  flex-shrink: 0;
+  padding: 10px 20px;
+  border-bottom: 1px solid #F0F1FA;
+}
+
+// Wrapper del título (icono + texto)
+.modalTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+// Título del modal
+.modalTitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 28px;
+  font-family: var(--font-family-global);
+}
+
+// Botón de cerrar
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  flex-shrink: 0;
+  background-color: #F0F1FA;
+  font-size: 10px;
+
+  &:hover {
+    background-color: #e5e7eb;
+    color: #363849;
+  }
+
+  &:active {
+    background-color: #d1d5db;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  }
+}
+
+// Contenido del modal
+.modalContent {
+  padding: 10px 20px;
+  overflow-y: auto;
+  flex: 1;
+  
+  // Scrollbar personalizado
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f0f1fa;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #9ca3af;
+    }
+  }
+}
+
+// Footer del modal
+.modalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #f0f1fa;
+  flex-shrink: 0;
+}
